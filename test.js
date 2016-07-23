@@ -12,7 +12,6 @@ function checkSchedule(schedule) {
     switch (count) {
         case 0:
             return 'Будильник не установлен';
-            break;
         case 1:
         case 2:
             return 'вы установили ' +
@@ -20,7 +19,6 @@ function checkSchedule(schedule) {
                 ' будильник(а),зная что бы любите поспать..' +
                 format(schedule) +
                 'советуем вам увеличить их число';
-            break;
         default:
             return 'вы установили ' +
                 count +
