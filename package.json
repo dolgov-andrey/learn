@@ -1,0 +1,22 @@
+{
+  "name": "js",
+  "version": "1.0.0",
+  "description": "homework",
+  "main": "1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dolgov-andrey/learn.git"
+  },
+  "author": "dolgov-andrey",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dolgov-andrey/learn/issues"
+  },
+  "homepage": "https://github.com/dolgov-andrey/learn#readme",
+  "devDependencies": {
+    "eslint": "^3.2.2"
+  }
+}
