@@ -29,5 +29,24 @@ window.getPositionY = function (startPosY, startSpeedY, curTime) {
     }
 };
 
+window.getPositionX = function (startPosX, startSpeedX, curTime){
+    'use strict'
+    if (startPosX === 0 && startSpeedX === 0){
+        return 0;
+    }
+    var distance = 0;
+    distance = startPosX + startSpeedX * curTime;
+    return distance.toFixed(2);
+};
+
+    /*
+    тест на начальные условия по оси 0Y: нач. скорость 0, положение Yo = 0
+     */
 console.log(window.getPositionY(0, 0, 100) === 0);
 console.log(window.getPositionY(0, 0, 100));
+
+    /*
+    тетс на начальные условия по оси 0Х: нач. скорость 0. положение Xo = 0
+     */
+console.log(window.getPositionX(0, 0, 100) === 0);
+console.log(window.getPositionX(0, 0, 100));
