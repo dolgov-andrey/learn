@@ -4,7 +4,7 @@ var schedule1 = {
     '8:33': 'second',
     '9:00': 'third'
 };
-function checkSchedule(schedule) {
+window.alarm = function checkSchedule(schedule) {
     var count = 0;
     for (var time in schedule) {
         count++;
@@ -29,8 +29,8 @@ function checkSchedule(schedule) {
         var text = '';
         for (var time in schedule) {
             text += time + ';';
+            return text;
         }
-        return text;
     }
 }
 
