@@ -2,7 +2,7 @@ var login;
 var pass;
 
 login = prompt('Кто стучится в дверь моя?', '');
-debugger;/*
+
 if ('Админ' === login) {
 
 	pass = prompt('Введите секретный пук? O.o','');
@@ -20,4 +20,4 @@ if ('Админ' === login) {
 } else{
 	alert('Кто вы? Идите На..й! Я ВАС не знаю!');
 }
-*/
+

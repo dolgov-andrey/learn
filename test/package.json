@@ -17,9 +17,15 @@
   },
   "homepage": "https://github.com/dolgov-andrey/learn#readme",
   "devDependencies": {
+    "chai": "^3.5.0",
     "eslint": "^3.2.2",
     "eslint-config-loris": "^5.1.0",
     "jscs": "^2.11.0",
-    "jscs-preset-loris": "^1.1.2"
+    "jscs-preset-loris": "^1.1.2",
+    "karma": "^1.1.2",
+    "karma-chai": "^0.1.0",
+    "karma-chrome-launcher": "^1.0.1",
+    "karma-mocha": "^1.1.1",
+    "mocha": "^3.0.2"
   }
 }
