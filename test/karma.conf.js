@@ -17,7 +17,7 @@ module.exports = function(config) {
     // list of files / patterns to load in the browser
     files: [
       '../workSpace/ballHomeWork/ballHomeWork.js',
-      '/ballHomeWorkTest/ballHomeWorkTest.js'
+      './ballHomeWorkTest/ballHomeWorkTest.js'
     ],
 
 
