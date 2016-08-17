@@ -2,7 +2,7 @@
 // Generated on Wed Aug 10 2016 16:35:12 GMT+0300 (RTZ 2 (зима))
 /* eslint-disable max-len*/
 /* eslint-env node*/
-/* jscs:disable */
+/* jscs:disable maximumLineLength*/
 'use strict';
 module.exports = function (config) {
     config.set({
