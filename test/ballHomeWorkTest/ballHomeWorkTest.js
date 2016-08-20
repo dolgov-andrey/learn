@@ -55,8 +55,7 @@ describe('getPositionY', function () {
 });
 
 
-
-/*...*/
+/*global getPositionX*/
 describe('getPositionX', function () {
     'use strict';
     it('тетс на начальные условия по оси 0Х: нач. скорость 0. положение Xo = 0', function () {
