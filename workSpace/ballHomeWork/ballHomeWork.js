@@ -9,38 +9,40 @@ var startSpeed = {
 var curTime = 5;
 window.getPosition = function (startPos, startSpeed, curTime) {
     'use strict';
+    var pos = {
+        x: 0,
+        y: 0
+    };
     if (startPos.y === 0 && startPos.x === 0 && startSpeed.y === 0 && startSpeed.x ===0) {
-        return 0;
+        return pos;
     }
 
     var g = 9.81;
     var t1;
     var t2;
     var phase;
-    var pos = {
-        x: 0,
-        y: 0
-    };
-
     t1 = (startSpeed.y - Math.sqrt(startSpeed.y * startSpeed.y + 2 * g * startPos.y)) / g;
     t2 = (startSpeed.y + Math.sqrt(startSpeed.y * startSpeed.y + 2 * g * startPos.y)) / g;
     phase = t2 - t1;
 
     pos.x = (startPos.x + startSpeed.x * curTime).toFixed(2);
     if (curTime <= t2) {
-        pos.y = (startPos.y + startSpeed.y * curTime - g * curTime * curTime / 2).toFixed(2);
+        pos.y = function positionY() {
+            var posY;
+            posY =  (startPos.y + startSpeed.y * curTime - g * curTime * curTime / 2).toFixed(2);
+            return posY;
+        };
         return pos;
     } else {
         /*
          для отскока берем новую задачу
-         с броском. 0Y = 0, и новой нач. скорость
+         с броском. 0Y = 0, и новой нач. скоростью
          */
-        var newStarSpeedY = g * phase / 2;
+        startPos.y = 0;
+        startSpeed.y = g * phase / 2;
         curTime = ((curTime - t2) % phase);
-        pos.y = (newStarSpeedY * curTime - g * curTime * curTime / 2).toFixed(2);
-
-        return pos;
-    }
+        return positionY ();
+    };
 };
 console.log(window.getPosition(startPos, startSpeed, curTime))
 // /*
