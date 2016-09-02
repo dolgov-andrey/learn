@@ -1,21 +1,35 @@
-window.getPositionY = function (startPosY, startSpeedY, curTime) {
+var startPos = {
+    x: 3,
+    y: 4
+};
+var startSpeed = {
+    x: 4,
+    y: 4
+};
+var curTime = 5;
+window.getPosition = function (startPos, startSpeed, curTime) {
     'use strict';
-    if (startPosY === 0 && startSpeedY === 0) {
+    if (startPos.y === 0 && startPos.x === 0 && startSpeed.y === 0 && startSpeed.x ===0) {
         return 0;
     }
+
     var g = 9.81;
     var t1;
     var t2;
     var phase;
-    var posY;
+    var pos = {
+        x: 0,
+        y: 0
+    };
 
-    t1 = (startSpeedY - Math.sqrt(startSpeedY * startSpeedY + 2 * g * startPosY)) / g;
-    t2 = (startSpeedY + Math.sqrt(startSpeedY * startSpeedY + 2 * g * startPosY)) / g;
+    t1 = (startSpeed.y - Math.sqrt(startSpeed.y * startSpeed.y + 2 * g * startPos.y)) / g;
+    t2 = (startSpeed.y + Math.sqrt(startSpeed.y * startSpeed.y + 2 * g * startPos.y)) / g;
     phase = t2 - t1;
 
+    pos.x = (startPos.x + startSpeed.x * curTime).toFixed(2);
     if (curTime <= t2) {
-        posY = startPosY + startSpeedY * curTime - g * curTime * curTime / 2;
-        return posY.toFixed(2);
+        pos.y = (startPos.y + startSpeed.y * curTime - g * curTime * curTime / 2).toFixed(2);
+        return pos;
     } else {
         /*
          для отскока берем новую задачу
@@ -23,21 +37,12 @@ window.getPositionY = function (startPosY, startSpeedY, curTime) {
          */
         var newStarSpeedY = g * phase / 2;
         curTime = ((curTime - t2) % phase);
-        posY = newStarSpeedY * curTime - g * curTime * curTime / 2;
+        pos.y = (newStarSpeedY * curTime - g * curTime * curTime / 2).toFixed(2);
 
-        return posY.toFixed(2);
+        return pos;
     }
 };
-
-window.getPositionX = function (startPosX, startSpeedX, curTime) {
-    'use strict'
-    if (startPosX === 0 && startSpeedX === 0) {
-        return 0;
-    }
-    var distance = 0;
-    distance = startPosX + startSpeedX * curTime;
-    return distance.toFixed(2);
-};
+console.log(window.getPosition(startPos, startSpeed, curTime))
 // /*
 //  тест на начальные условия по оси 0Y: нач. скорость 0, положение Yo = 0
 //  */
