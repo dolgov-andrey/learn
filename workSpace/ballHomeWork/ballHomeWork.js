@@ -27,7 +27,7 @@ window.getPosition = function (startPos, startSpeed, curTime) {
 
     pos.x = (startPos.x + startSpeed.x * curTime).toFixed(2);
     if (curTime <= t2) {
-        pos.y = function positionY() {
+        pos.y = function() {
             var posY;
             posY =  (startPos.y + startSpeed.y * curTime - g * curTime * curTime / 2).toFixed(2);
             return posY;
@@ -41,7 +41,8 @@ window.getPosition = function (startPos, startSpeed, curTime) {
         startPos.y = 0;
         startSpeed.y = g * phase / 2;
         curTime = ((curTime - t2) % phase);
-        return positionY ();
+        pos.y =  (startPos.y + startSpeed.y * curTime - g * curTime * curTime / 2).toFixed(2)
+        return pos;
     };
 };
 console.log(window.getPosition(startPos, startSpeed, curTime))
